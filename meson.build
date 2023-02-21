@@ -1,0 +1,21 @@
+project('ludo', 'c',
+  version : '0.1',
+  default_options : ['warning_level=3'])
+raylib = declare_dependency(link_args: '-lraylib')
+executable('ludo',
+           'game_board.c',
+           'square.c',
+           'piece.c',
+           'utils.c',
+           'debug.c',
+           'team.c',
+           'ui_checkbox.c',
+           'ui_button.c',
+           'home.c',
+           'ui_element.c',
+           'ludo.c',
+           'ui_text.c',
+           'path.c',
+           'ui_layout.c',
+           dependencies: raylib,
+           install : true)
