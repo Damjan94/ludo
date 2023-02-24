@@ -129,8 +129,18 @@ struct Piece* getPieceMouseClickedOnCallback(enum Side side) {
 
 
 
+struct CheckBox teamsInPlayCheckBox[NUMBER_OF_TEAMS];
 bool shouldShowMainMenu = true;
 void onPlayButtonClicked() {
+  bool hasSingleTeamChecked = false;
+  for(size_t i = 0; i < NUMBER_OF_TEAMS; ++i) {
+    if (teamsInPlayCheckBox[i].isChecked) {
+      hasSingleTeamChecked = true;
+    }
+  }
+  if(!hasSingleTeamChecked) {
+    return;
+  }
   shouldShowMainMenu = false;
 }
 
@@ -206,7 +216,6 @@ int main() {
   struct Button playButton = initPlayButton();
 
   struct CheckBox useOwnDiceCheckBox = initUseOwnDiceCheckBox();
-  struct CheckBox teamsInPlayCheckBox[NUMBER_OF_TEAMS];
   initTeamsInPlayCheckBox(teamsInPlayCheckBox);
   teamsInPlayCheckBox[0].isChecked = true; // Make red
   teamsInPlayCheckBox[2].isChecked = true; // and yellow defalut players
