@@ -208,6 +208,8 @@ int main() {
   struct CheckBox useOwnDiceCheckBox = initUseOwnDiceCheckBox();
   struct CheckBox teamsInPlayCheckBox[NUMBER_OF_TEAMS];
   initTeamsInPlayCheckBox(teamsInPlayCheckBox);
+  teamsInPlayCheckBox[0].isChecked = true; // Make red
+  teamsInPlayCheckBox[2].isChecked = true; // and yellow defalut players
   layoutAddElement(&mainMenu, &(playButton.element));
   layoutAddElement(&mainMenu, &(useOwnDiceCheckBox.element));
   uiElementAddOffset(&(useOwnDiceCheckBox.element), smallOffset);
